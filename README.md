@@ -35,6 +35,22 @@ gulp.src('./src/**/svg/*.svg')
     .pipe(gulp.dest('./dist')),
 ```
 
+Set output file sizes and styles:
+
+```javascript
+gulp.src('./src/**/svg/*.svg')
+    ...
+    .pipe(raster({
+        format: 'jpg',
+        sizes: {
+            width: 1200,
+            height: 1200
+        },
+        styles: fs.readFileSync('./raster-styles.css', 'utf8')
+    }))
+    ...
+```
+
 ## API
 
 ### raster(options)
@@ -51,11 +67,17 @@ Default: `png`
 
 Set output file format, png/jpg are available.
 
+#### options.sizes
+Type: `Object`
+Default: `false`
+
+Set output file size, width, height or both (will contain inside). Importantly than **scale** option.
+
 #### options.styles
 Type: `String`
 Default: `''`
 
-Set custom styles (for example, if you need to use custom fonts).
+Set custom styles (e.g., if you need to use custom fonts).
 
 ## License
 
