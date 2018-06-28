@@ -1,3 +1,5 @@
+- **0.4.1**:
+  - Added fixing non-sized svg
 - **0.4.0**:
   - Added sizes option
 - **0.3.0**:
